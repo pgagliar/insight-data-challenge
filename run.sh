@@ -10,9 +10,6 @@ echo "Using Java at $JAVA_PATH. Current Java version:"
 $JAVA_PATH -version
 
 
-
-export MAVEN_OPTS=-Xmx1024M
-
 echo ""
 echo "Compiling program from src/main/java/Tweet_Stat_Launcher.java ..."
 echo ""
