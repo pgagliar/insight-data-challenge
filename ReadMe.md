@@ -15,8 +15,8 @@ Then the entire treemap is written on the file ft1.txt
 
 ###Running Median:
 To compute the running median, we used a lower half queue and an upper half queue.<br />
--Number lower than the head of the lowerQueue goes in <br />
--Number greater than the head of the upperQueue goes in it
+-Number lower than the head of the lowerQueue goes in the lowerQueue <br />
+-Number greater than the head of the upperQueue goes in the upperQueue
 
 Finally,
 -if the queues have same length then: median is (upperqueue head +lowerQueue head)/2
