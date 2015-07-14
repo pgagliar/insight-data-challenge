@@ -17,40 +17,44 @@ public class Tweet_Stat_Launcher {
 		long endTime = 0;
 		double duration = 0;
 		startTime = System.currentTimeMillis();
-		//We create flux of tweet that will read the file line by line
+		//We create an InputStream, an InputStreamReader and a buffer to read the file line by line
 		InputStream is = new FileInputStream(new File(pathToInputFile));
 		InputStreamReader isr = new InputStreamReader(is);
 		BufferedReader buffer = new BufferedReader(isr);
 		String tweet;
-		RunningMedian medianUnique=new RunningMedian();
+		//We instantiate two object RunningMedian and WordCount
+		RunningMedian runningMedian=new RunningMedian();
 		WordCount wordCount=new WordCount();
 		
 		//Iterate over the tweet file, line by line
 		while ((tweet = buffer.readLine()) != null){
-			HashSet<String> tweetUniqueWords=medianUnique.getTweetUniqueWords();
-			//We pass the entire tweet to the method computeTfAndDf, to find a query term in it
-			//We iterate over every word in a tweet
+			//We use an hashset to compute the second feature because it doesn't allow duplicate word.
+			HashSet<String> tweetUniqueWords=runningMedian.getTweetUniqueWords();
+			//We iterate over every word in a tweet by splitting the tweet on whitespace
 		     for (String word:tweet.split(" ")){
 		    	 //We check if the word is not a whitespace
 		    	 if (word.trim().length() > 0){
-		    		 /*We add a word in the hashset, if the word is already in the hashset nothing happen
-			    	  otherwise the word is added in the hashset
+		    		 /*We add a word in the hashset tweetUniqueWords, if the word is already in it,
+		    		  *  nothing happen, otherwise the word is added 
 			    	  */
 		    		 tweetUniqueWords.add(word);
+		    		 //We pass a word to the method count
 		    		 wordCount.count(word);
 		    	 }
 		     }
 		     /*In the Hashset tweetUniqueWords, there are all the unique words of the tweet, 
-			 *so the size of the hashset tells the number of unique word in the tweet
+			 *so the size of the hashset tells the number of unique word in the tweet,
+			 *the we pass the number to the method getMedian.
 			 */
-		     double median=medianUnique.getMedian(tweetUniqueWords.size());
-		     medianUnique.writeMedianUnique(median);
+		     double median=runningMedian.getMedian(tweetUniqueWords.size());
+		     //The output running median is written on ft2.txt
+		     runningMedian.writeMedianUnique(median);
 		     //The Hashset is reinitialize
-		     medianUnique.setTweetUniqueWords(new HashSet<String>());
+		     runningMedian.setTweetUniqueWords(new HashSet<String>());
 		     
 		}
 		wordCount.writeWordCount();
-		medianUnique.getWriter().close();
+		runningMedian.getWriter().close();
 		isr.close();
 		is.close();
 		buffer.close();
