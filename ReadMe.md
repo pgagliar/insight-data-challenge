@@ -1,6 +1,6 @@
 #Insight Data Engineering coding challenge:
 
-The coding challenge consists of implementing a word count and a running median on unique words, for a tweet dataset.
+The coding challenge consists of implementing a word count and a running median on a tweet dataset.
 
 ##Dataset:
 I used java for my solution and tested it on the dataset sentiment140 from Standford.<br />
