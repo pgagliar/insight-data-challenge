@@ -19,7 +19,7 @@ To compute the running median, we used a lower half queue and an upper half queu
 -Number greater than the head of the upperQueue goes in the upperQueue
 
 Finally,<br />
--if the queues have same length then: median is (upperqueue head +lowerQueue head)/2<br />
+-if the queues have same length, then median is (upperqueue head +lowerQueue head)/2<br />
 -else the median is the head of the longest queue.
 
 At each loop, we have to insert one element in O(log(n)).<br />
