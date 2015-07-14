@@ -1,4 +1,4 @@
-package main.java;
+
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -8,13 +8,14 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.HashSet;
 
+
 public class Tweet_Stat_Launcher {
 
 	public static void main(String[] args) throws IOException {
 		String pathToInputFile="tweet_input/high_ascii_free_tweet_sentiment_140.txt";
 		long startTime = 0;
 		long endTime = 0;
-		long duration = 0;
+		double duration = 0;
 		startTime = System.currentTimeMillis();
 		//We create flux of tweet that will read the file line by line
 		InputStream is = new FileInputStream(new File(pathToInputFile));
@@ -54,8 +55,8 @@ public class Tweet_Stat_Launcher {
 		is.close();
 		buffer.close();
 		endTime = System.currentTimeMillis();
-		duration = endTime - startTime;
-		System.out.println("Duration of the word count and running median: " + duration);
+		duration = (endTime - startTime)/1000;
+		System.out.println("Running time of word count and running median: " + duration+" secondes");
 	}
 
 }
