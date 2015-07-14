@@ -24,3 +24,5 @@ Finally,<br />
 
 At each loop, we have to insert one element in O(log(n)).<br />
 In the worst case, we have to also balance the two heap, so another O(log(n)).
+
+PS: As multi-threading or multi-processing wasn't necessary I didn't implement it, but it could have been fun to try :)
