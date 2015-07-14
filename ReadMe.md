@@ -9,7 +9,7 @@ In the end, the dataset contains 1,242,776 tweets.
 
 ##Solution:
 ###Word Count:
-For the word count, i stocked all the entries (word,count) inside a treemap.<br />
+For the word count, i stocked all the entries (word,count) inside a TreeMap.<br />
 It automatically sorts the word with respect to the Ascii code.<br />
 Then the entire treemap is written on the file ft1.txt
 
