@@ -3,8 +3,8 @@
 The coding challenge consists of implementing a word count and a running median on a tweet dataset.
 
 ##Dataset:
-I used java for my solution and I tested it on the dataset sentiment140 from Standford.<br />
-Originally, this dataset contains 1 600 000 tweets. Tweets containing characters outside [the hexadceimal range [x00-x7E]](http://www.ascii-code.com/) were stripped off from the dataset.<br />
+I used Java for my solution and I tested it on the dataset sentiment140 from Standford.<br />
+Originally, this dataset contains 1 600 000 tweets. Tweets containing characters outside [the hexadecimal range [x00-x7E]](http://www.ascii-code.com/) were stripped off from the dataset.<br />
 In the end, the dataset contains 1,242,776 tweets.
 
 ##Solution:
